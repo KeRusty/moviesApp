@@ -1,15 +1,15 @@
 
 import { AppRegistry } from 'react-native';
 import App from './App';
-// import store from './src/Utils/Redux/store';
+import store from './src/Utils/Redux/store';
 import { name as appName } from './app.json';
-// import { Provider } from 'react-redux'
+import { Provider } from 'react-redux'
 import 'react-native-gesture-handler';
 
 const FairBetsApp = () => (
-    // <Provider store={store}>
-    <App />
-    // </Provider>
+    <Provider store={store}>
+        <App />
+    </Provider>
 )
 
 AppRegistry.registerComponent(appName, () => FairBetsApp);
