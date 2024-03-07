@@ -35,7 +35,6 @@ function Home() {
 
 
     const renderItem = useCallback(({ item, index }: any) => {
-        console.log(item, 'rendereditem')
         return (
             <MovieBox
                 key={index}
