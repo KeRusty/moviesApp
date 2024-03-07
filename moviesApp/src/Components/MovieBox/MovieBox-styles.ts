@@ -10,7 +10,17 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         borderWidth: 0.4,
         borderColor: appColors.gray,
-        backgroundColor: appColors.white
+        backgroundColor: appColors.white,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    textContainer: {
+        flexDirection: 'column'
+    },
+    movieContainer: {
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     titleText: {
         color: appColors.black,
@@ -21,6 +31,15 @@ const styles = StyleSheet.create({
         color: appColors.gray,
         fontSize: 14,
         fontWeight: '600'
+    },
+    actorsText: {
+        color: appColors.gray,
+        fontSize: 12,
+        fontWeight: '600'
+    },
+    image: {
+        width: 70,
+        height: 70
     }
 
 })
