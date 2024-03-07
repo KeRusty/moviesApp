@@ -3,6 +3,7 @@ import { SafeAreaView, Alert, FlatList } from 'react-native';
 import { fetchData } from '../../Utils/API/APIClass';
 import { useDispatch, useSelector } from 'react-redux';
 import { storeMovies } from '../../Utils/Redux/MoviesSlice';
+import { saveSearch } from '../../Utils/Redux/SearchSlice';
 
 // Components
 import Loader from '../../Components/Loader/Loader';
@@ -39,6 +40,7 @@ function Home() {
 
     const runSearch = () => {
         // console.log(searchText, 'searchText')
+        dispatch(saveSearch(searchText))
         getData(true, searchText)
     }
 
