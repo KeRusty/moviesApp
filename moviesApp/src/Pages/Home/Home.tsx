@@ -42,6 +42,7 @@ function Home() {
                 title={item["#TITLE"]}
                 actors={item["#ACTORS"]}
                 year={item["#YEAR"]}
+                image={item['#IMG_POSTER']}
             />
         )
     }, [])
