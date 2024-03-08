@@ -17,12 +17,13 @@ import styles from './Home-styles';
 function Home() {
     const dispatch = useDispatch();
     const movies = useSelector((state: any) => state.movies);
-
+    const searches = useSelector((state: any) => state.searches)
+    const { searchQuick }: any = searches ? searches : {}
     const [loading, setLoading] = useState(false);
     const [searchText, setSearchText] = useState('');
     const [defaultSearchValue, setDefaultSearchValue] = useState('Dune')
 
-    const getData = async (isSearch?: boolean, searchValue?: string) => {
+    const getData = useCallback(async (isSearch?: boolean, searchValue?: string) => {
         setLoading(true)
         try {
             const result = await fetchData(`?q=${isSearch ? searchValue : defaultSearchValue}`);
@@ -33,16 +34,25 @@ function Home() {
             setLoading(false)
             Alert.alert('Error Occured', 'Network related error occured');
         }
-    }
+    }, [])
 
     useEffect(() => {
-        getData();
-    }, []);
+        if (searchQuick.length === 0) {
+            getData();
+        } else {
+            getData(true, searchQuick);
+        }
+    }, [searchQuick]);
 
-    const runSearch = () => {
-        // console.log(searchText, 'searchText')
-        dispatch(saveSearch(searchText))
-        getData(true, searchText)
+    const runSearch = (isQuickSearch?: boolean, text?: string) => {
+        if (!isQuickSearch) {
+            dispatch(saveSearch(searchText))
+            getData(true, searchText)
+        } else {
+            getData(true, text)
+        }
+
+
     }
 
     const renderItem = useCallback(({ item, index }: any) => {
@@ -66,11 +76,14 @@ function Home() {
                 <SearchBox
                     placeholder={'Search...'}
                     onChangeText={setSearchText}
-                    runSearch={runSearch}
+                    runSearch={() => runSearch()}
                 />
             }
             {!loading &&
-                <QuickSearch />
+                <QuickSearch
+                    runSearch={runSearch}
+                // setSearchText={setSearchText}
+                />
             }
             {!loading &&
                 movies.description.length > 0 &&
