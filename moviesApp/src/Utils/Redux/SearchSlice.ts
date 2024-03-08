@@ -5,22 +5,19 @@ const initialState = {
 }
 
 export const searchSlice = createSlice({
-    name: 'movies',
+    name: 'searches',
     initialState: initialState,
     reducers: {
         saveSearch: (state, action) => {
-            // state.searchResults = action.payload
             let tempArray: any = state.searchResults;
             tempArray.push(action.payload)
             state.searchResults = tempArray
-            // console.log(action.payload, 'load')
-            console.log(tempArray, 'tempArray')
 
         },
-        reset: () => initialState
+        clearSearches: () => initialState
     },
 })
 
-export const { saveSearch } = searchSlice.actions
+export const { saveSearch, clearSearches } = searchSlice.actions
 
 export default searchSlice.reducer
