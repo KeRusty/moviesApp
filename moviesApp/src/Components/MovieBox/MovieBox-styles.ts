@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     textContainer: {
-        flexDirection: 'column'
+        flexDirection: 'column',
+        width: '70%'
     },
     movieContainer: {
         flexDirection: 'row',
@@ -38,8 +39,9 @@ const styles = StyleSheet.create({
         fontWeight: '600'
     },
     image: {
-        width: 70,
-        height: 70
+        width: 50,
+        height: 70,
+        marginEnd: 10,
     }
 
 })

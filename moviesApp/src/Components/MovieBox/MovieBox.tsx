@@ -20,7 +20,7 @@ function MovieBox({ title, actors, year, image }: MovieBoxProps) {
                     resizeMode={FastImage.resizeMode.contain}
                 />
                 <View style={styles.textContainer}>
-                    <Text style={styles.titleText}>{title} <Text style={styles.yearText}>{`(${year})`}</Text></Text>
+                    <Text style={styles.titleText}>{title} {year && <Text style={styles.yearText}>{`(${year})`}</Text>}</Text>
                     <Text style={styles.actorsText}>{actors}</Text>
                 </View>
             </View>
