@@ -9,6 +9,7 @@ import { saveSearch } from '../../Utils/Redux/SearchSlice';
 import Loader from '../../Components/Loader/Loader';
 import SearchBox from '../../Components/SearchBox/SearchBox';
 import MovieBox from '../../Components/MovieBox/MovieBox';
+import QuickSearch from '../../Wrappers/QuickSearch/QuickSearch';
 
 // Styles
 import styles from './Home-styles';
@@ -67,6 +68,9 @@ function Home() {
                     onChangeText={setSearchText}
                     runSearch={runSearch}
                 />
+            }
+            {!loading &&
+                <QuickSearch />
             }
             {!loading &&
                 movies.description.length > 0 &&
