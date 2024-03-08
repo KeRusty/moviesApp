@@ -26,6 +26,5 @@ export default RecentSearches;
 
 interface RecentSearchesProps {
     title: string;
-    setSearchText?: any;
     runSearch?: any;
 }

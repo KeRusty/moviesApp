@@ -51,8 +51,6 @@ function Home() {
         } else {
             getData(true, text)
         }
-
-
     }
 
     const renderItem = useCallback(({ item, index }: any) => {
@@ -82,7 +80,6 @@ function Home() {
             {!loading &&
                 <QuickSearch
                     runSearch={runSearch}
-                // setSearchText={setSearchText}
                 />
             }
             {!loading &&

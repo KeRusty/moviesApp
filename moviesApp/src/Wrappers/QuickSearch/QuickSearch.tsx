@@ -11,7 +11,7 @@ import RecentSearches from '../../Components/RecentSearches/RecentSearches';
 // Styles
 import styles from './QuickSearch-styles';
 
-function QuickSearch({ runSearch, setSearchText }: QuickSearchProps) {
+function QuickSearch({ runSearch }: QuickSearchProps) {
     const dispatch = useDispatch();
     const searches = useSelector((state: any) => state.searches)
 
@@ -30,7 +30,6 @@ function QuickSearch({ runSearch, setSearchText }: QuickSearchProps) {
                             <RecentSearches
                                 key={index}
                                 title={item}
-                                // setSearchText={setSearchText}
                                 runSearch={runSearch}
                             />
                         )
@@ -57,5 +56,4 @@ export default QuickSearch;
 
 interface QuickSearchProps {
     runSearch?: any;
-    setSearchText?: any;
 }
