@@ -3,13 +3,14 @@ import { View, TouchableOpacity, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { appColors } from '../../Utils/Colors/colors';
 import FastImage from 'react-native-fast-image'
+import { NavigationProp } from "@react-navigation/native";
 
 // Styles
 import styles from './MovieBox-styles';
 
-function MovieBox({ title, actors, year, image }: MovieBoxProps) {
+function MovieBox({ title, actors, year, image, movieId, navigation }: MovieBoxProps) {
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('MovieDetailsScreen', { movieId: movieId })}>
             <View style={styles.movieContainer}>
                 <FastImage
                     style={styles.image}
@@ -42,5 +43,7 @@ interface MovieBoxProps {
     title: string,
     actors: string,
     year: number,
-    image: string
+    image: string,
+    movieId: string,
+    navigation: NavigationProp<any, any>;
 }
