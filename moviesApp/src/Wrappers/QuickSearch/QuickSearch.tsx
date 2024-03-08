@@ -11,7 +11,7 @@ import RecentSearches from '../../Components/RecentSearches/RecentSearches';
 // Styles
 import styles from './QuickSearch-styles';
 
-function QuickSearch() {
+function QuickSearch({ runSearch, setSearchText }: QuickSearchProps) {
     const dispatch = useDispatch();
     const searches = useSelector((state: any) => state.searches)
 
@@ -21,6 +21,7 @@ function QuickSearch() {
         <View style={styles.container}>
             <ScrollView
                 horizontal={true}
+                showsHorizontalScrollIndicator={false}
                 contentContainerStyle={styles.scroller}
             >
                 {searchResults.length > 0 &&
@@ -29,6 +30,8 @@ function QuickSearch() {
                             <RecentSearches
                                 key={index}
                                 title={item}
+                                // setSearchText={setSearchText}
+                                runSearch={runSearch}
                             />
                         )
                     })
@@ -50,4 +53,9 @@ function QuickSearch() {
     )
 }
 
-export default QuickSearch
+export default QuickSearch;
+
+interface QuickSearchProps {
+    runSearch?: any;
+    setSearchText?: any;
+}
