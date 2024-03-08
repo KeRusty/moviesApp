@@ -4,6 +4,7 @@ import { fetchData } from '../../Utils/API/APIClass';
 import { useDispatch, useSelector } from 'react-redux';
 import { storeMovies } from '../../Utils/Redux/MoviesSlice';
 import { saveSearch } from '../../Utils/Redux/SearchSlice';
+import { NavigationProp } from "@react-navigation/native";
 
 // Components
 import Loader from '../../Components/Loader/Loader';
@@ -14,7 +15,7 @@ import QuickSearch from '../../Wrappers/QuickSearch/QuickSearch';
 // Styles
 import styles from './Home-styles';
 
-function Home() {
+function Home({ navigation }: HomeProps) {
     const dispatch = useDispatch();
     const movies = useSelector((state: any) => state.movies);
     const searches = useSelector((state: any) => state.searches)
@@ -61,6 +62,8 @@ function Home() {
                 actors={item["#ACTORS"]}
                 year={item["#YEAR"]}
                 image={item['#IMG_POSTER']}
+                movieId={item['#IMDB_ID']}
+                navigation={navigation}
             />
         )
     }, [])
@@ -97,3 +100,7 @@ function Home() {
 }
 
 export default Home;
+
+interface HomeProps {
+    navigation: NavigationProp<any, any>;
+}
