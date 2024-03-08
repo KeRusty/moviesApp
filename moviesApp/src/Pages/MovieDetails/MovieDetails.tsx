@@ -78,7 +78,7 @@ function MovieDetails({ navigation, route }: MovieDetailsProps) {
 
                         {movieSingle.short?.actor.map((item: any, index: number) => {
                             return (
-                                <TouchableOpacity style={styles.actorsItemsContainer} onPress={() => Linking.openURL(item.url)}>
+                                <TouchableOpacity key={index} style={styles.actorsItemsContainer} onPress={() => Linking.openURL(item.url)}>
                                     <Text style={styles.actionTextDesc}>{item.name}</Text>
                                 </TouchableOpacity>
                             )
