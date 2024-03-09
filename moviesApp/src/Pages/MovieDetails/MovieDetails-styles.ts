@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     descriptionTextContainer: {
-        width: '70%'
+        width: '70%',
+        paddingLeft: 5
     },
     descriptionText: {
         fontSize: 15,

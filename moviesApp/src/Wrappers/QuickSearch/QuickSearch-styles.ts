@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { appColors } from "../../Utils/Colors/colors";
 
 const styles = StyleSheet.create({
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     clearButton: {
-        padding: 3,
+        padding: Platform.OS === "ios" ? 3 : 4,
         borderRadius: 5,
         borderWidth: 1,
         borderColor: appColors.black

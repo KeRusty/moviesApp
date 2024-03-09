@@ -1,12 +1,12 @@
 
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { appColors } from "../../Utils/Colors/colors";
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: appColors.gold,
         paddingHorizontal: 10,
-        paddingVertical: 20,
+        paddingVertical: Platform.OS === "ios" ? 8 : 10,
     },
     textInput: {
         backgroundColor: appColors.white,
