@@ -16,7 +16,6 @@ function MovieDetails({ navigation, route }: MovieDetailsProps) {
     const dispatch = useDispatch();
     const movies = useSelector((state: any) => state.movies);
     const { movieSingle }: any = movies ? movies : {}
-    console.log(route.params)
     const routeData = route.params ? route.params : {};
 
     const [loading, setLoading] = useState(false);
@@ -28,7 +27,6 @@ function MovieDetails({ navigation, route }: MovieDetailsProps) {
             dispatch(storeSelectedMovie(result))
             setLoading(false)
         } catch (error: any) {
-            console.log(error, 'error')
             setLoading(false)
             Alert.alert('Error Occured', 'Network related error occured');
         }
