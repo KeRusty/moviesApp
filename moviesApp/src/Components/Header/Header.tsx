@@ -7,7 +7,6 @@ import { appColors } from '../../Utils/Colors/colors';
 import styles from './Header-styles';
 
 function Header({ navigation, route }: HeaderProps) {
-    console.log(route.name)
     return (
         <SafeAreaView style={styles.container}>
             {route.name !== "HomeScreen" &&
